@@ -1,58 +1,37 @@
 export const runtime = "edge";
 
+import { Button } from "@/components/ui/button";
+import { AlertCircle, MoveLeft } from "lucide-react";
+import Link from "next/link";
+
 export default function NotFound() {
   return (
-    <>
-      <title>404: This page could not be found.</title>
-      <div style={styles.error}>
-        <div>
-          <style
-            dangerouslySetInnerHTML={{
-              __html: `body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}`,
-            }}
-          />
-          <h1 className="next-error-h1" style={styles.h1}>
+    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-white flex flex-col items-center justify-center p-4 text-center">
+      <div className="max-w-md w-full space-y-8">
+        <div className="relative">
+          <h1 className="text-9xl font-extrabold text-gray-900 animate-bounce">
             404
           </h1>
-          <div style={styles.desc}>
-            <h2 style={styles.h2}>This page could not be found.</h2>
-          </div>
+          <AlertCircle className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-500 w-20 h-20 animate-pulse" />
+        </div>
+
+        <h2 className="mt-6 text-3xl font-bold text-gray-900">
+          Oops! Page not found
+        </h2>
+
+        <p className="mt-2 text-lg text-gray-600">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+
+        <div className="mt-6 animate-fade-in-up">
+          <Link href="/" passHref>
+            <Button>
+              <MoveLeft className="mr-2 h-5 w-5" />
+              Go to Home
+            </Button>
+          </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }
-
-const styles = {
-  error: {
-    fontFamily:
-      'system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
-    height: "100vh",
-    textAlign: "center",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  desc: {
-    display: "inline-block",
-  },
-
-  h1: {
-    display: "inline-block",
-    margin: "0 20px 0 0",
-    padding: "0 23px 0 0",
-    fontSize: 24,
-    fontWeight: 500,
-    verticalAlign: "top",
-    lineHeight: "49px",
-  },
-
-  h2: {
-    fontSize: 14,
-    fontWeight: 400,
-    lineHeight: "49px",
-    margin: 0,
-  },
-} as const;
