@@ -55,7 +55,7 @@ const NavLink = ({
         {item.children && <ChevronDown className="ml-1 h-4 w-4" />}
       </Link>
       {item.children && (
-        <div className="absolute left-0 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+        <div className="absolute left-0 w-64 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
           <div className="flex gap-2 flex-col">
             {item.children.map((child) => (
               <NavLink key={child.href} item={child} isNested />

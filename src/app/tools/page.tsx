@@ -7,7 +7,15 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { DollarSign, LineChart, TrendingUp } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title:
+    "Tools: Essential Personal Finance Tools: SIP, SWP, Loans & Calculators",
+  description:
+    "Explore essential personal finance tools including SIP, SWP, personal loan calculators, and mortgage loan solutions. Simplify your financial decisions today!",
+};
 
 const navigation = [
   {
