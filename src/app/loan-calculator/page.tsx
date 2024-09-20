@@ -1,6 +1,6 @@
 export const runtime = "edge";
 import { Metadata } from "next";
-import PersonalLoanCalculator from "../components/Loans/PersonalLoan/PersonalLoanCalculator";
+import PersonalLoanCalculator from "../../components/Loans/PersonalLoan/PersonalLoanCalculator";
 
 export const metadata: Metadata = {
   title:

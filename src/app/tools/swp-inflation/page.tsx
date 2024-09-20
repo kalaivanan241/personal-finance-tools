@@ -1,5 +1,5 @@
 export const runtime = "edge";
-import SWPCalculatorInflation from "@/app/components/SWPCalculator/SWPCalculatorInflation";
+import SWPCalculatorInflation from "@/components/SWPCalculator/SWPCalculatorInflation";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

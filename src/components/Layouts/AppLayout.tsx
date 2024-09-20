@@ -1,12 +1,15 @@
 "use client";
 
+import SignIn from "@/components/sign-in";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { ChevronDown, LogOut, Menu, User } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { Suspense } from "react";
 import LoadingIndicator from "../LoadingIndicator";
+import ProfileAvatar from "../profile-avatar";
 
 type MenuItem = {
   name: string;
@@ -112,11 +115,7 @@ const MobileNavLink = ({
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-
-  const toggleLogin = () => {
-    setIsLoggedIn(!isLoggedIn);
-  };
+  const { data: session } = useSession();
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -149,24 +148,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           <div className="flex items-center space-x-4">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={toggleLogin}
-              className="hidden md:flex"
-            >
-              {isLoggedIn ? (
-                <>
-                  <LogOut className="mr-2 h-4 w-4" />
-                  Logout
-                </>
-              ) : (
-                <>
-                  <User className="mr-2 h-4 w-4" />
-                  Login
-                </>
-              )}
-            </Button>
+            <div className="hidden md:flex">
+              {!session?.user ? <SignIn /> : <ProfileAvatar />}
+            </div>
 
             <Sheet>
               <SheetTrigger asChild>
@@ -180,19 +164,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   {menuItems.map((item) => (
                     <MobileNavLink key={item.href} item={item} />
                   ))}
-                  <Button variant="outline" size="sm" onClick={toggleLogin}>
-                    {isLoggedIn ? (
-                      <>
-                        <LogOut className="mr-2 h-4 w-4" />
-                        Logout
-                      </>
-                    ) : (
-                      <>
-                        <User className="mr-2 h-4 w-4" />
-                        Login
-                      </>
-                    )}
-                  </Button>
+                  {!session?.user ? <SignIn /> : <ProfileAvatar />}
                 </nav>
               </SheetContent>
             </Sheet>

@@ -1,6 +1,6 @@
 export const runtime = "edge";
 
-import SIPCalculator from "@/app/components/SIPCalculator/SIPCalculator";
+import SIPCalculator from "@/components/SIPCalculator/SIPCalculator";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

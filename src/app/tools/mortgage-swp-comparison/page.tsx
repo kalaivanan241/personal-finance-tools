@@ -1,5 +1,5 @@
 export const runtime = "edge";
-import { MortgageSwpComparison } from "@/app/components/mortgage-swp-comparison";
+import { MortgageSwpComparison } from "@/components/mortgage-swp-comparison";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

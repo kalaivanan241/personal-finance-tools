@@ -1,4 +1,4 @@
-import SWPCalculatorInflation from "../components/SWPCalculator/SWPCalculatorInflation";
+import SWPCalculatorInflation from "../../components/SWPCalculator/SWPCalculatorInflation";
 
 export const runtime = "edge";
 
