@@ -1,8 +1,6 @@
 "use client";
-"}{:";
-import { signOut } from "@/auth";
+import { SignOut } from "@/components/sign-out";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -10,14 +8,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { LogOut } from "lucide-react";
 import { useSession } from "next-auth/react";
 
 export default function Component() {
   const { data: session } = useSession();
-  const handleLogout = async () => {
-    await signOut();
-  };
 
   return (
     <div className="flex justify-center items-center">
@@ -51,14 +45,7 @@ export default function Component() {
           </div>
         </CardContent>
         <CardFooter>
-          <Button
-            variant="destructive"
-            className="w-full"
-            onClick={handleLogout}
-          >
-            <LogOut className="mr-2 h-4 w-4" />
-            Log out
-          </Button>
+          <SignOut />
         </CardFooter>
       </Card>
     </div>
