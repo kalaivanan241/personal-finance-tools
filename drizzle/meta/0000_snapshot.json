@@ -1,7 +1,7 @@
 {
-  "version": "5",
+  "version": "6",
   "dialect": "sqlite",
-  "id": "b64771b8-e69a-4f16-bf9a-9340298dfe27",
+  "id": "1343e764-9fcd-4003-938b-09dd3b9a4b55",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "account": {
@@ -199,8 +199,8 @@
       "compositePrimaryKeys": {
         "authenticator_userId_credentialID_pk": {
           "columns": [
-            "credentialID",
-            "userId"
+            "userId",
+            "credentialID"
           ],
           "name": "authenticator_userId_credentialID_pk"
         }
@@ -347,5 +347,8 @@
     "schemas": {},
     "tables": {},
     "columns": {}
+  },
+  "internal": {
+    "indexes": {}
   }
 }

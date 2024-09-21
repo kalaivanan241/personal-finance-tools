@@ -23,7 +23,7 @@ CREATE TABLE `authenticator` (
 	`credentialDeviceType` text NOT NULL,
 	`credentialBackedUp` integer NOT NULL,
 	`transports` text,
-	PRIMARY KEY(`credentialID`, `userId`),
+	PRIMARY KEY(`userId`, `credentialID`),
 	FOREIGN KEY (`userId`) REFERENCES `user`(`id`) ON UPDATE no action ON DELETE cascade
 );
 --> statement-breakpoint
